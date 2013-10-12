@@ -1,5 +1,10 @@
 ﻿var app = angular.module("account", ['ui.bootstrap']);
 
+app.config(function($interpolateProvider) {
+	  $interpolateProvider.startSymbol('{[{');
+	  $interpolateProvider.endSymbol('}]}');
+	});
+
 app.directive('disabler', function ($compile) {
     return {
         scope: {
@@ -22,6 +27,9 @@ app.directive('disabler', function ($compile) {
 });
 
 function SignInController($scope, $http, $modal) {
+	
+	$scope.messageText = 'Unknown error.';
+	
     $scope.login = function () {
         $http(
         {
@@ -33,12 +41,12 @@ function SignInController($scope, $http, $modal) {
             if (data.message == 'Success')
                 window.location.href = data.redirect;
             else {
-                $scope.messageText = data.message;
+            	$scope.messageText = data.message;
                 $scope.showMessage();
                 $scope.loading = false;
             }
         }).error(function (data) {
-            $scope.messageText = data.message ? data.message : "Error message from the server.";
+        	$scope.messageText = data.message ? data.message : "Error message from the server.";
             $scope.showMessage();
             $scope.loading = false;
         });
@@ -102,7 +110,7 @@ function SignUpController($scope, $http, $modal) {
 
 var MessageCtrl = function ($scope, $modalInstance, messageText) {
 
-    $scope.messageText = messageText;
+    $scope.messageBody = messageText;
 
     $scope.ok = function () {
         $modalInstance.close();
