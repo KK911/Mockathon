@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.utils import simplejson
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -28,7 +28,7 @@ def signedup(request):
                 user.first_name = userjson['firstName']
                 user.save();
                 response['message'] = 'Success'
-                response['Redirect'] = reverse('accounts:landing')
+                response['redirect'] = reverse('accounts:landing')
                 return HttpResponse(simplejson.dumps(response))
             else:
                 
@@ -59,9 +59,9 @@ def loggedin(request):
             if user is not None:
                 # the password verified for the user
                 if user.is_active:
-                    login(request, user)
+                    auth_login(request, user)
                     response['message'] = 'Success'
-                    response['Redirect'] = reverse('accounts:landing')
+                    response['redirect'] = reverse('accounts:landing')
                     return HttpResponse(simplejson.dumps(response))
                 
     response['message'] = 'failure'    
