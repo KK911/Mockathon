@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html data-ng-app="signUp" xmlns="http://www.w3.org/1999/xhtml">
+<html data-ng-app="account" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Sign up form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../../../mockathon/static/lib/jquery/jquery-1.10.2.js"></script>
 
-    <link href="../../../mockathon/static/css/bootstrap.css" rel="stylesheet" />
-    <link href="../../../mockathon/static/css/bootstrap-responsive.css" rel="stylesheet" />
-
     <script src="../../../mockathon/static/lib/bootstrap/bootstrap.js"></script>
     <script src="../../../mockathon/static/lib/angular/angular.js"></script>
+    <script src="../../../mockathon/static/lib/angular/ui-bootstrap-tpls-0.6.0.js.js"></script>
+    <script src="../../static/accounts/js/LogonController.js"></script>
 
-    <script src="LogonController.js"></script>
+    <link href="../../../mockathon/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../mockathon/static/css/bootstrap-responsive.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container" data-ng-controller="SignUpController" data-ng-init="userCreationSuccess=false">
+    <div class="container" data-ng-controller="SignUpController">
         <div class="row">
             <div class="span12 well">
+                <h2>Sign up for an account with Babyboo</h2>
                 <div class="span3">
-                    <h2>Sign Up</h2>
                     <form name="signUpForm">
                         <label>
                             First Name
-                                <input type="text" name="firstname" class="span3" placeholder="John" required="required" data-ng-model="user.firstName" /></label>
+                                <input type="text" name="firstname" class="span3" placeholder="John" required data-ng-model="user.firstName" /></label>
                         <label>
                             Last Name
                                 <input type="text" name="lastname" class="span3" placeholder="Smith" required="required" data-ng-model="user.lastName" /></label>
@@ -39,17 +39,25 @@
                         <label>
                             <input type="checkbox" name="acceptTerms" required="required" data-ng-model="user.acceptTerms" />
                             I agree with the <a href="#">Terms and Conditions</a>.</label>
-                        <button type="submit" class="btn btn-primary pull-right" disabler="'Creating Account...'" data-ng-model="loading" data-ng-click="saveNewUser()" data-ng-disabled="isSaveDisabled()">
+                        <button type="submit" class="btn btn-primary pull-right" data-ng-model="loading" data-ng-click="saveNewUser()" data-ng-disabled="signUpForm.$invalid">
                             Sign up</button>
-                        <div data-ng-show="userCreationSuccess">
-                            <hr />
-                            New user account created. Click <a data-ng-href="sign-in.html?userId={{ user.id }}">here</a> to sign in using your account.
-                        </div>
                         <div class="clearfix"></div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/ng-template" id="message.html">
+        <div class="modal-header">
+            <h4>An error has occurred.</h4>
+        </div>
+        <div class="modal-body">
+            {{ messageText }}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
 </body>
 </html>

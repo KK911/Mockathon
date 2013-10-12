@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html data-ng-app="account" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sign in to Babyboo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../../mockathon/static/lib/jquery/jquery-1.10.2.js"></script>
+
+    <script src="../../../mockathon/static/lib/bootstrap/bootstrap.js"></script>
+    <script src="../../../mockathon/static/lib/angular/angular.js"></script>
+    <script src="../../../mockathon/static/lib/angular/ui-bootstrap-tpls-0.6.0.js.js"></script>
+    <script src="../../static/accounts/js/LogonController.js"></script>
+
+    <link href="../../../mockathon/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../mockathon/static/css/bootstrap-responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container" data-ng-controller="SignInController" ng-init="loginError = false">
+        <div class="row">
+            <div class="span4 offset4">
+                <div class="well">
+                    <h2>Sign in to WebApp</h2>
+                    <form name="signInForm">
+                        <div class="alert alert-error" ng-hide="loginError">
+                            <a class="close" data-dismiss="alert" href="#">x</a>Incorrect Username or Password!
+                        </div>
+                        <input class="span3" placeholder="Username" type="text" name="username" />
+                        <input class="span3" placeholder="Password" type="password" name="password" />
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember" value="1" />
+                            Remember Me
+                        </label>
+                        <button class="btn-info btn" type="submit">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="message.html">
+        <div class="modal-header">
+            <h4>An error has occurred.</h4>
+        </div>
+        <div class="modal-body">
+            {{ messageText }}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</body>
+</html>
