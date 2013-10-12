@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.utils import simplejson
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -38,7 +38,7 @@ def signedup(request):
     response['message'] = 'failure'
     return HttpResponse(simplejson.dumps(response))
 
-
+@login_required
 def landing(request):
     return render(request, 'accounts/welcome.html')
 
@@ -67,8 +67,10 @@ def loggedin(request):
     response['message'] = 'Unknown username or password'    
     return HttpResponse(simplejson.dumps(response))
 
+@login_required
 def logout(request):
-    logout(request)
+    auth_logout(request)
+    return HttpResponseRedirect(reverse('accounts:login'))
 
 @login_required
 def info(request):
