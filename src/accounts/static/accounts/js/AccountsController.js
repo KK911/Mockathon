@@ -33,7 +33,7 @@ function AcctController($scope, $http) {
     };
 
     $scope.onCancelClick = function () {
-    	alert('cancelled')
+    	console.log('cancelled');
         angular.copy(master, $scope.user);
     };
 

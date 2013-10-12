@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-ng-app="account" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Sign in to Babyboo</title>
+    <title>Babyboo - Account Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
      {% load staticfiles %}
@@ -39,7 +39,7 @@
                             <div class="container">
                                 <ul class="nav">
                                     <li><a href="#">Account</a></li>
-                                    <li><a href="#">My Kids</a></li>
+                                    <li><a href="#">My Children</a></li>
                                     <li><a href="#">Preferences</a></li>
                                     <li><a href="#">Password</a></li>
                                 </ul>
@@ -59,8 +59,8 @@
                         <label style="width: 150px;">
                             Email:
                                 <input type="email" name="email" class="span3" placeholder="someone@domain.com" required="required" data-ng-model="user.email" /></label>
-                        <button type="button" ng-disabled="isCancelDisabled()" ng-click="onCancelClick">Cancel</button>
-                        <button type="button" ng-disabled="isSaveDisabled()" ng-click="onSaveClick">Save</button>
+                        <button type="button" class="btn btn-warning" ng-click="onCancelClick()" ng-disabled="isCancelDisabled()">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="onSaveClick()" ng-disabled="isSaveDisabled()">Save</button>
                         <div class="alert alert-error" ng-hide="hideMessage">
                         <hr />
                             <a class="close" ng-click="hideMessage=false" href="">×</a>Saved Successfully
