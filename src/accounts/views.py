@@ -104,3 +104,6 @@ def updateInfo(request, user_id):
     
     response['message'] = 'failure'
     return HttpResponse(simplejson.dumps(response))    
+
+def myAccount(request):
+    return render(request, 'accounts/settings.html')
