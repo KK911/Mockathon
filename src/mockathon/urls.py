@@ -17,4 +17,7 @@ urlpatterns = patterns('',
     url(r'^children/', include('children.urls')),
     
     url(r'^accounts/', include('accounts.urls', namespace="accounts")),
+    
+    url(r'^accounts/login/', 'accounts.views.login'),    
+    
 )
