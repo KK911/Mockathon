@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core import serializers
+
 
 
 # Create your models here.
@@ -14,6 +16,6 @@ class Child(models.Model):
     )
     gender = models.CharField(max_length=1,choices=gender_choices,default='F')
     birth_date = models.DateTimeField('Birth Date')
-    def __unicode__(self):  # Python 3: def __str__(self):
-        return self.first_name
+    
+        
     
