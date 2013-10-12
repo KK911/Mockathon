@@ -40,7 +40,7 @@ def signedup(request):
 
 
 def landing(request):
-    return render(request, 'accounts/landing.html')
+    return render(request, 'accounts/welcome.html')
 
 
 def login(request):
@@ -64,7 +64,7 @@ def loggedin(request):
                     response['redirect'] = reverse('accounts:landing')
                     return HttpResponse(simplejson.dumps(response))
                 
-    response['message'] = 'failure'    
+    response['message'] = 'Unknown username or password'    
     return HttpResponse(simplejson.dumps(response))
 
 def logout(request):

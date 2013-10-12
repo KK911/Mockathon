@@ -1,9 +1,9 @@
 ﻿function HomeController($scope, $http) {
     $scope.master = {};
 
-    $http.get('http://localhost/F5SeedProject/App/data/users.json')
+    $http.get('../accounts/info')
         .success(function (data) {
             $scope.user = {};
-            angular.copy(data.user, $scope.user);
+            angular.copy(data, $scope.user);
     });
 }
