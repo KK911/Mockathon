@@ -3,7 +3,7 @@
 <head>
     <title>Sign in to Babyboo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../../mockathon/static/lib/jquery/jquery-1.10.2.js"></script>
+    <!-- <script src="../../../mockathon/static/lib/jquery/jquery-1.10.2.js"></script>
 
     <script src="../../../mockathon/static/lib/bootstrap/bootstrap.js"></script>
     <script src="../../../mockathon/static/lib/angular/angular.js"></script>
@@ -11,7 +11,20 @@
     <script src="../../static/accounts/js/LogonController.js"></script>
 
     <link href="../../../mockathon/static/css/bootstrap.css" rel="stylesheet" />
-    <link href="../../../mockathon/static/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="../../../mockathon/static/css/bootstrap-responsive.css" rel="stylesheet" /> -->
+    
+     
+     {% load staticfiles %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.css' %}" />
+    
+    <script src="{% static 'lib/jquery/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/bootstrap.js' %}"></script>
+    <script src="{% static 'lib/angular/angular.js' %}"></script>
+    <script src="{% static 'lib/angular/ui-bootstrap-tpls-0.6.0.js.js' %}"></script>
+    
+    <script src="{% static 'accounts/js/LogonController.js' %}"></script>
 </head>
 
 <body>

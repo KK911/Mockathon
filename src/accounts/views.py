@@ -42,9 +42,11 @@ def signedup(request):
 def landing(request):
     return render(request, 'accounts/landing.html')
 
-def login(request):
-    return render(request, 'accounts/log-in.html')
 
+def login(request):
+    return render(request, 'accounts/sign-in.html')
+
+@csrf_exempt
 def loggedin(request):
     response = {}
     

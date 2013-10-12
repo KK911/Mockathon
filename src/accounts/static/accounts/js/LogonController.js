@@ -25,7 +25,7 @@ function SignInController($scope, $http, $modal) {
     $scope.login = function () {
         $http(
         {
-            url: 'http://localhost/F5SeedProject/App/data/signInSuccess.json',
+            url: '../accounts/loggedin',
             method: 'POST',
             data: $scope.user,
             headers: { 'Content-Type': 'application/json' }
@@ -69,7 +69,7 @@ function SignUpController($scope, $http, $modal) {
         $scope.loading = true;
         $http(
         {
-            url: 'http://localhost/F5SeedProject/App/data/signUpSuccess.json',
+            url: '../accounts/signedup',
             method: 'POST',
             data: $scope.user,
             headers: { 'Content-Type': 'application/json' }
