@@ -33,7 +33,7 @@ function SignInController($scope, $http, $modal) {
     $scope.login = function () {
         $http(
         {
-            url: '../accounts/loggedin',
+            url: '../../accounts/loggedin',
             method: 'POST',
             data: $scope.user,
             headers: { 'Content-Type': 'application/json' }
