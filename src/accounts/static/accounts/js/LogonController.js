@@ -30,8 +30,7 @@ function SignInController($scope, $http, $modal) {
             data: $scope.user,
             headers: { 'Content-Type': 'application/json' }
         }).success(function (data) {
-            console.log(data);
-            if (data.message == 'success')
+            if (data.message == 'Success')
                 window.location.href = data.redirect;
             else {
                 $scope.messageText = data.message;
@@ -74,7 +73,7 @@ function SignUpController($scope, $http, $modal) {
             data: $scope.user,
             headers: { 'Content-Type': 'application/json' }
         }).success(function (data) {
-            if (data.message == 'success')
+            if (data.message == 'Success')
                 window.location.href = data.redirect;
             else {
                 $scope.messageText = data.message;
