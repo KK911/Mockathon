@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
-<html ng-app xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app="account" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Welcome to Babyboo</title>
-    <!-- <script src="../../../../mockathon/static/lib/angular/angular.js"></script>
-    <script src="../../../static/welcome/js/welcome.js"></script>-->
+<!--    <script src="../../../mockathon/static/lib/angular/angular.js" type="text/javascript"></script>
+    <script src="../../static/accounts/js/welcome.js" type="text/javascript"></script>-->
+
     {% load staticfiles %}
     
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
@@ -20,9 +21,9 @@
 <body>
     <div ng-controller="HomeController">
         <!--TODO:: My Account link-->
-        <a href="myAccountLink">My Account</a>
+        <a href="settings">My Account</a>
         <!--TODO:: Signout link-->
-        <a href="../accounts/logout">Signout</a>
+        <a href="logout">Signout</a>
 
         <h1>
             <!--TODO:: Add image-->
@@ -30,7 +31,7 @@
         </h1>
         <br />
         <br />
-        <b>Welcome {{user.firstName}} {{user.lastName}}! </b>
+        <b>Welcome {[{user.firstName}]} {[{user.lastName}]}! </b>
         <br />
         <br />
         The first thing you want to do is to add your kids to your account, so that you can track their activities. You can do this on the "My Kids" tab under "My Account".

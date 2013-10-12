@@ -86,7 +86,7 @@ def info(request):
     return HttpResponse(simplejson.dumps(response))
 
 @login_required
-def updateInfo(request, user_id):
+def updateInfo(request):
     response = {}
     
     if request.is_ajax():
@@ -104,3 +104,6 @@ def updateInfo(request, user_id):
     
     response['message'] = 'failure'
     return HttpResponse(simplejson.dumps(response))    
+
+def myAccount(request):
+    return render(request, 'accounts/settings.html')
