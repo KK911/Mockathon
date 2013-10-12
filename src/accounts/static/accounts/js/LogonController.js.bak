@@ -19,18 +19,17 @@ app.directive('disabler', function ($compile) {
             });
         }
     }
-});
+})
 
 function SignInController($scope, $http, $modal) {
     $scope.login = function () {
         $http(
         {
-            url: 'http://localhost/F5SeedProject/App/data/signInSuccess.json',
+            url: 'http://localhost/F5SeedProject/App/data/signUpSuccess.json',
             method: 'POST',
             data: $scope.user,
             headers: { 'Content-Type': 'application/json' }
         }).success(function (data) {
-            console.log(data);
             if (data.message == 'success')
                 window.location.href = data.redirect;
             else {
@@ -42,18 +41,6 @@ function SignInController($scope, $http, $modal) {
             $scope.messageText = data.message ? data.message : "Error message from the server.";
             $scope.showMessage();
             $scope.loading = false;
-        });
-    };
-
-    $scope.showMessage = function () {
-        var modalInstance = $modal.open({
-            templateUrl: 'message.html',
-            controller: MessageCtrl,
-            resolve: {
-                messageText: function () {
-                    return $scope.messageText;
-                }
-            }
         });
     };
 }

@@ -15,22 +15,20 @@
 </head>
 
 <body>
-    <div class="container" data-ng-controller="SignInController" ng-init="loginError = false">
+    <div class="container" data-ng-controller="SignInController" ng-init="loginError = true">
         <div class="row">
             <div class="span4 offset4">
-                <div class="well">
-                    <h2>Sign in to WebApp</h2>
+                <div class="well" style="margin-top: 20px">
+                    <h3>Sign in to Babyboo</h3>
                     <form name="signInForm">
                         <div class="alert alert-error" ng-hide="loginError">
                             <a class="close" data-dismiss="alert" href="#">x</a>Incorrect Username or Password!
                         </div>
-                        <input class="span3" placeholder="Username" type="text" name="username" />
-                        <input class="span3" placeholder="Password" type="password" name="password" />
-                        <label class="checkbox">
-                            <input type="checkbox" name="remember" value="1" />
-                            Remember Me
-                        </label>
-                        <button class="btn-info btn" type="submit">Login</button>
+                        <input class="span3" placeholder="User name" type="text" name="username" autocomplete="off" required="required" data-ng-model="user.userName" />
+                        <input class="span3" placeholder="Password" type="password" name="password" autocomplete="off" required="required" data-ng-model="user.password" />
+                        <button type="submit" class="btn btn-primary" data-ng-model="loading" data-ng-click="login()" data-ng-disabled="signInForm.$invalid">
+                            Login</button>
+                        <div class="clearfix"></div>
                     </form>
                 </div>
             </div>
