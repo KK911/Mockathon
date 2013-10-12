@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html ng-app xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome to Babyboo</title>
+    <!-- <script src="../../../../mockathon/static/lib/angular/angular.js"></script>
+    <script src="../../../static/welcome/js/welcome.js"></script>-->
+    {% load staticfiles %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.css' %}" />
+    
+    <script src="{% static 'lib/jquery/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/bootstrap.js' %}"></script>
+    <script src="{% static 'lib/angular/angular.js' %}"></script>
+    <script src="{% static 'lib/angular/ui-bootstrap-tpls-0.6.0.js.js' %}"></script>
+    
+    <script src="{% static 'accounts/js/welcome.js' %}"></script>
+    
+</head>
+<body>
+    <div ng-controller="HomeController">
+        <!--TODO:: My Account link-->
+        <a href="myAccountLink">My Account</a>
+        <!--TODO:: Signout link-->
+        <a href="../accounts/logout">Signout</a>
+
+        <h1>
+            <!--TODO:: Add image-->
+            <img src="{% static 'img/Baby.jpg' %}" />Babyboo
+        </h1>
+        <br />
+        <br />
+        <b>Welcome {{user.firstName}} {{user.lastName}}! </b>
+        <br />
+        <br />
+        The first thing you want to do is to add your kids to your account, so that you can track their activities. You can do this on the "My Kids" tab under "My Account".
+        <br />
+        <br />
+        Happy parenting!
+    </div>
+</body>
+</html>
