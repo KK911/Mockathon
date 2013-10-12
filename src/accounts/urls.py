@@ -10,5 +10,6 @@ urlpatterns = patterns('',
      url(r'^loggedin$', views.loggedin, name='loggedin'),
      url(r'^logout', views.logout, name='logout'),
      url(r'^info', views.info, name='info'),
+     url(r'^updateinfo', views.updateInfo, name='updateInfo'),
      url(r'^settings', views.myAccount, name='settings'),
 )
