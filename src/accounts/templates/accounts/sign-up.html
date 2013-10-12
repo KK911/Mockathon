@@ -3,15 +3,28 @@
 <head>
     <title>Sign up form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../../mockathon/static/lib/jquery/jquery-1.10.2.js"></script>
+    <!-- <script src="../../../mockathon/static/lib/jquery/jquery-1.10.2.js"></script>
 
     <link href="../../../mockathon/static/css/bootstrap.css" rel="stylesheet" />
     <link href="../../../mockathon/static/css/bootstrap-responsive.css" rel="stylesheet" />
 
     <script src="../../../mockathon/static/lib/bootstrap/bootstrap.js"></script>
-    <script src="../../../mockathon/static/lib/angular/angular.js"></script>
-
+    <script src="../../../mockathon/static/lib/angular/angular.js"></script> 
     <script src="LogonController.js"></script>
+    -->
+    
+    {% load staticfiles %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.css' %}" />
+    
+    <script src="{% static 'lib/jquery/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/bootstrap.js' %}"></script>
+    <script src="{% static 'lib/angular/angular.js' %}"></script>
+    
+    <script src="{% static 'accounts/js/LogonController.js' %}"></script>
+
+    
 </head>
 
 <body>
@@ -20,7 +33,7 @@
             <div class="span12 well">
                 <div class="span3">
                     <h2>Sign Up</h2>
-                    <form name="signUpForm">
+                    <form name="signUpForm">                    
                         <label>
                             First Name
                                 <input type="text" name="firstname" class="span3" placeholder="John" required="required" data-ng-model="user.firstName" /></label>

@@ -17,7 +17,7 @@ app.directive('disabler', function ($compile) {
     }
 })
 
-function SignUpController($scope, $http, $timer) {
+function SignUpController($scope, $http) {
 
     $scope.isSaveDisabled = function () {
         return $scope.signUpForm.$invalid;
@@ -27,7 +27,7 @@ function SignUpController($scope, $http, $timer) {
         $scope.loading = true;
         $http(
         {
-            url: '../data/data.ashx',
+            url: "../accounts/signedup",
             method: 'POST',
             data: $scope.user,
             headers: { 'Content-Type': 'application/json' }
