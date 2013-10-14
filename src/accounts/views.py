@@ -27,8 +27,9 @@ def signedup(request):
                 user.last_name = userjson['lastName']
                 user.first_name = userjson['firstName']
                 user.save();
+                
                 response['message'] = 'Success'
-                response['redirect'] = reverse('accounts:landing')
+                response['redirect'] = reverse('accounts:login')
                 return HttpResponse(simplejson.dumps(response))
             else:
                 
@@ -86,6 +87,7 @@ def info(request):
     return HttpResponse(simplejson.dumps(response))
 
 @login_required
+@csrf_exempt
 def updateInfo(request):
     response = {}
     
