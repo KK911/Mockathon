@@ -13,7 +13,7 @@ function AcctController($scope, $http) {
     $scope.onSaveClick = function () {
         $http(
             {
-                url: '../accounts/loggedin',
+                url: '../accounts/updateinfo',
                 method: 'POST',
                 data: $scope.user,
                 headers: { 'Content-Type': 'application/json' }
