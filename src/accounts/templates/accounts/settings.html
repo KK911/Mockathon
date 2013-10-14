@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-ng-app="account" xmlns="http://www.w3.org/1999/xhtml">
+<html data-ng-app="babybooApp" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Babyboo - Account Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +14,9 @@
     <script src="{% static 'lib/angular/angular.js' %}"></script>
     <script src="{% static 'lib/angular/ui-bootstrap-tpls-0.6.0.js.js' %}"></script>
     
+    <script src="{% static 'lib/js/app.js' %}"></script>
+    <script src="{% static 'lib/js/directives.js' %}"></script>
+    <script src="{% static 'lib/js/services.js' %}"></script>
     <script src="{% static 'accounts/js/AccountsController.js' %}"></script>
 </head>
 
@@ -59,11 +62,12 @@
                         <label style="width: 150px;">
                             Email:
                                 <input type="email" name="email" class="span3" placeholder="someone@domain.com" required="required" data-ng-model="user.email" /></label>
-                        <button type="button" class="btn btn-warning" ng-click="onCancelClick()" ng-disabled="isCancelDisabled()">Cancel</button>
-                        <button type="button" class="btn btn-primary" ng-click="onSaveClick()" ng-disabled="isSaveDisabled()">Save</button>
-                        <div class="alert alert-error" ng-hide="hideMessage">
-                        <hr />
-                            <a class="close" ng-click="hideMessage=false" href="">×</a>Saved Successfully
+                        <div class="btn-toolbar">
+	                        <button type="button" class="btn btn-warning" ng-click="onCancelClick()" ng-disabled="isCancelDisabled()">Cancel</button>
+	                        <button type="button" class="btn btn-primary" ng-click="onSaveClick()" ng-disabled="isSaveDisabled()">Save</button>
+                        </div>
+                        <div class="alert alert-success modal-form" ng-hide="hideMessage">
+                            <a class="close" ng-click="hideMessage=true" href="">×</a>Saved Successfully
                         </div>
                         <div class="clearfix"></div>
                     </form>
