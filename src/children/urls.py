@@ -5,5 +5,6 @@ from children import views
 urlpatterns = patterns('',
      url(r'^$', views.mychildren, name='mychildren'),
      url(r'^addChild/$', views.createchild, name='createchild'),
+     url(r'^adchild$', views.addchild, name='addchild'),
      
 )

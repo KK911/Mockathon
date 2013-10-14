@@ -7,9 +7,9 @@ app.config(function ($interpolateProvider) {
 
 function MyChildrenController($scope, $http) {
     $scope.master = {};
-
-    $http.get('http://localhost/F5SeedProject/App/data/children.json')
+    
+    $http.get('../children')
     .success(function (data) {
-        $scope.users = data;
+        $scope.children = data;
     });
 }
