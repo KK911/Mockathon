@@ -1,4 +1,3 @@
-var app = angular.module("account", ['ui.bootstrap']);
 
 function AcctController($scope, $http) {
     var master = {};
@@ -13,13 +12,14 @@ function AcctController($scope, $http) {
     $scope.onSaveClick = function () {
         $http(
             {
-                url: '../accounts/loggedin',
+                url: '../accounts/updateinfo',
                 method: 'POST',
                 data: $scope.user,
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data) {
-                if (data.message == 'Success')
-                    window.location.href = data.redirect;
+                if (data.message == 'Success') {
+                	$scope.hideMessage = false; 
+                    }
                 else {
                     $scope.messageText = data.message;
                     $scope.showMessage();
@@ -33,7 +33,6 @@ function AcctController($scope, $http) {
     };
 
     $scope.onCancelClick = function () {
-    	console.log('cancelled');
         angular.copy(master, $scope.user);
     };
 

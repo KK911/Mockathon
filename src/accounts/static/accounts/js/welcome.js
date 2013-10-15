@@ -1,11 +1,4 @@
-﻿var app = angular.module("account", []);
-
-app.config(function ($interpolateProvider) {
-    $interpolateProvider.startSymbol('{[{');
-    $interpolateProvider.endSymbol('}]}');
-});
-
-function HomeController($scope, $http) {
+﻿function HomeController($scope, $http) {
     $scope.master = {};
 
     $http.get('../accounts/info')
