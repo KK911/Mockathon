@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, include, url
+from tastypie.api import api
+from children.api.resources import MyChildResource
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
